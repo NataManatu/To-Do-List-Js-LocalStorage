@@ -1,0 +1,86 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #01142F;
+}
+
+.main-container {
+    max-width: 800px;
+}
+
+.input-block {
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh;
+}
+
+
+
+#input_task {
+    width: 75%;
+    height: 5vh;
+    border: 0.4vh solid #00CF91;
+    border-radius: 1.3vh;
+    font-size: 2.5vh;
+    padding: 0 1vh;
+}
+
+#add_task {
+    width: 15%;
+    height: 5vh;
+    background-color: #00CF91;
+    border: 0.4vh solid #00CF91;
+    border-radius: 1.3vh;
+    font-size: 2.5vh;
+    text-align: center;
+    line-height: 5vh;
+    color: white;
+}
+
+#todo-list {
+    padding: 1vh;
+}
+
+.todo-task {
+    background-color: white;
+    height: 5vh;
+    border: 0.4vh solid #00CF91;
+    border-radius: 1vh;
+    margin-bottom: 1vh;
+
+    font-size: 2.5vh;
+    text-align: center;
+    line-height: 5vh;
+    color: black;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 0 17px;
+
+    align-items: center;
+}
+
+.btn-del {
+    color: white;
+    background-color: #F85C50;
+    width: 10%;
+}
+
+#checkbox {
+    width: 30px;
+    height: 30px;
+
+
+
+}
+
+.todo-task h6 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

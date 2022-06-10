@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main-container">
+        <div class="input-block">
+            <input type="text" id="input_task">
+            <div id="add_task">ADD</div>
+        </div>
+
+        <div id="todo-list">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    let blockList = document.getElementById("todo-list")
+
+    let todoList = []
+
+    let storageList = localStorage.getItem("todoList")
+    storageList = JSON.parse(storageList)
+
+    if (storageList != null) {
+        todoList = storageList
+        // console.log(todoList)
+        for (let index = 0; index < todoList.length; index++) {
+            const element = todoList[index];
+
+            let nowElText = element["text"]
+            let nowElKey = element["key"]
+
+
+            htmlBlock = `<div id="` + nowElKey + `" class="todo-task" >
+                            <h6>` + nowElText + `</h6>
+                            <div class="btn-del">DEL</div>
+                        </div>`
+
+            blockList.innerHTML += htmlBlock
+
+
+        }
+
+        updateEvents()
+    }
+
+
+    let input_task = document.getElementById("input_task")
+    let add_task = document.getElementById("add_task")
+
+    add_task.addEventListener("click", function () {
+        let textInInput = input_task.value
+
+        let bodyList = {
+            text: "",
+            statusComplete: false,
+            key: ""
+        }
+
+        if (textInInput != "") {
+            bodyList["text"] = textInInput
+            bodyList["key"] = genKey()
+
+            todoList.push(bodyList)
+
+            let jsonList = JSON.stringify(todoList)
+            localStorage.setItem('todoList', jsonList);
+
+            htmlBlock = `<div id="` + bodyList["key"] + `" class="todo-task">
+                            <h6 id="task_name">` + textInInput + `</h6>
+                            <input type="checkbox" id="checkbox">
+                            <div class="btn-del">DEL</div>
+                        </div>`
+
+            blockList.innerHTML += htmlBlock
+            textInInput = " "
+            updateEvents()
+        }
+    })
+
+    function updateEvents() {
+        let delBtnList = document.getElementsByClassName("btn-del")
+
+        for (let index = 0; index < delBtnList.length; index++) {
+            const element = delBtnList[index];
+            // console.log(element)
+            element.addEventListener('click', function () {
+                element.parentNode.remove()
+                let nowID = element.parentNode.id
+
+                for (let index = 0; index < storageList.length; index++) {
+                    const element = storageList[index];
+                    // console.log(element)
+                    if (nowID == element.key) {
+                        // console.log(element)\
+                        // delete storageList[index]
+                        storageList.splice(index, 1)
+                        console.log(storageList)
+                        // element.splice(index, 1)
+                    }
+                }
+                console.log(storageList)
+                let jsonList = JSON.stringify(todoList)
+                localStorage.setItem('todoList', jsonList);
+            });
+        }
+    }
+
+    function genKey() {
+        let listValid = ["A", "B", "C", "D", "E", "F", "G", "H", "K", "L"]
+        let resultStr = ""
+
+        let min = 0
+        let max = listValid.length - 1
+
+        for (let index = 0; index < 4; index++) {
+            let randIdx = Math.random() * (max - min) + min;
+            randIdx = Math.round(randIdx)
+            resultStr += listValid[randIdx]
+        }
+
+
+
+        return resultStr
+
+    }
+
+    let checkbox = document.querySelector('#checkbox');
+
+
+    checkbox.addEventListener('click', function (){
+
+        let tekst_name = document.querySelector('#task_name')
+
+        if (checkbox.checked) {
+            tekst_name.style.textDecoration = "line-through";
+            alert('selected');
+        }
+        else {
+            tekst_name.style.textDecoration = "none";
+            alert(' no selected');
+        }
+
+    })
+
+</script>
