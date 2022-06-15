@@ -19,8 +19,6 @@ body {
     padding: 1vh;
 }
 
-
-
 #input_task {
     width: 75%;
     height: 5vh;
@@ -52,17 +50,23 @@ body {
     border: 0.4vh solid #00CF91;
     border-radius: 1vh;
     margin-bottom: 1vh;
-
     font-size: 2.5vh;
     text-align: center;
     line-height: 5vh;
     color: black;
-
     display: flex;
     justify-content: space-between;
     padding: 0 17px;
+}
 
-    align-items: center;
+.todo-task h6 {
+    white-space: nowrap;
+    /* Запрещаем перенос строк */
+    overflow: hidden;
+    /* Обрезаем все, что не помещается в область */
+    /* Цвет фона */
+    text-overflow: ellipsis;
+    /* Добавляем многоточие */
 }
 
 .btn-del {
@@ -71,16 +75,7 @@ body {
     width: 10%;
 }
 
-#checkbox {
-    width: 30px;
-    height: 30px;
-
-
-
-}
-
-.todo-task h6 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.task-complate {
+    text-decoration: line-through;
+    color: rgb(70, 0, 108);
 }
