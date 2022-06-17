@@ -36,7 +36,7 @@
 
     if (storageList != null) {
         todoList = storageList
-            // console.log(todoList)
+        // console.log(todoList)
         for (let index = 0; index < todoList.length; index++) {
             const element = todoList[index];
 
@@ -62,8 +62,9 @@
     let input_task = document.getElementById("input_task")
     let add_task = document.getElementById("add_task")
 
-    add_task.addEventListener("click", function() {
+    add_task.addEventListener("click", function () {
         let textInInput = input_task.value
+        input_task.value = " "
 
         let bodyList = {
             text: "",
@@ -98,7 +99,7 @@
         for (let index = 0; index < delBtnList.length; index++) {
             const element = delBtnList[index];
             // console.log(element)
-            element.addEventListener('click', function() {
+            element.addEventListener('click', function () {
                 element.parentNode.remove()
                 let nowID = element.parentNode.id
 
@@ -110,7 +111,7 @@
                         // delete storageList[index]
                         storageList.splice(index, 1)
                         console.log(storageList)
-                            // element.splice(index, 1)
+                        // element.splice(index, 1)
                     }
                 }
                 console.log(storageList)
@@ -120,11 +121,11 @@
         }
 
         let complateBtnList = document.getElementsByClassName("btn-complate")
-            // console.log(complateBtnList)
+        console.log(complateBtnList)
 
         for (let index = 0; index < complateBtnList.length; index++) {
             const element = complateBtnList[index];
-            element.addEventListener('click', function() {
+            element.addEventListener('click', function () {
                 let nowTaskText = element.parentNode.childNodes[1]
                 nowTaskText.classList.toggle("task-complate")
             });
