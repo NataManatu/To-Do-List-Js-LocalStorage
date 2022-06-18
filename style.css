@@ -1,63 +1,86 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #01142F;
+    background-image: url(bg.jpg);
+
+
 }
 
 .main-container {
     max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+
+
+}
+
+.main-container h1 {
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+
 }
 
 .input-block {
-    display: flex;
+    display: grid;
+    grid-template-columns: 84% 15%;
     justify-content: space-between;
-    padding: 1vh;
+    margin-top: 50px;
+    color: darkolivegreen;
+    align-items: center;
+
+
 }
 
 #input_task {
-    width: 75%;
-    height: 5vh;
-    border: 0.4vh solid #00CF91;
+    height: 40px;
     border-radius: 1.3vh;
     font-size: 2.5vh;
-    padding: 0 1vh;
+    border-style: none;
+    padding: 5px;
+    align-items: center;
+    color: rgb(104, 63, 2);
+
+}
+
+#input_task:focus {
+    outline: none;
+
 }
 
 #add_task {
-    width: 15%;
-    height: 5vh;
-    background-color: #00CF91;
-    border: 0.4vh solid #00CF91;
+    height: 40px;
+    background-color: #cf6400;
     border-radius: 1.3vh;
     font-size: 2.5vh;
     text-align: center;
     line-height: 5vh;
     color: white;
+    padding: 5px;
+
+
 }
 
-#todo-list {
-    padding: 1vh;
-}
 
 .todo-task {
-    background-color: white;
-    height: 5vh;
-    border: 0.4vh solid #00CF91;
-    border-radius: 1vh;
-    margin-bottom: 1vh;
-    font-size: 2.5vh;
-    text-align: center;
-    line-height: 5vh;
-    color: black;
-    display: flex;
+
+    display: grid;
+    grid-template-columns: 75% 10% 15%;
     justify-content: space-between;
-    padding: 0 17px;
+    height: 40px;
+    align-items: center;
+    padding: 5px;
+    margin-top: 20px;
+    background-color: rgb(239, 253, 239);
+    color: rgb(104, 63, 2);
+    border-radius: 1.3vh;
 }
+
 
 .todo-task h6 {
     white-space: nowrap;
@@ -71,11 +94,22 @@ body {
 
 .btn-del {
     color: white;
-    background-color: #F85C50;
-    width: 10%;
+    text-align: center;
+}
+
+
+
+.btn-complate {
+    text-align: center;
+    border-left: 1px dashed gray;
+    border-right: 1px dashed gray;
 }
 
 .task-complate {
     text-decoration: line-through;
     color: rgb(70, 0, 108);
+}
+
+#todo-list {
+    margin-top: 50px;
 }
