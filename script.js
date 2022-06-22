@@ -36,7 +36,7 @@ let add_task = document.getElementById("add_task")
 add_task.addEventListener("click", function () {
     let textInInput = input_task.value
     input_task.value = " "
-
+  
 
     let bodyList = {
         text: "",
